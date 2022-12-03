@@ -32,13 +32,14 @@ jobs:
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
     - name: Clone source code
       run: |
-        git clone --depth=1 https://github.com/Avantyjw/padavan-4.4.git /opt/padavan-4.4
+        #git clone --depth=1 https://github.com/Avantyjw/padavan-4.4.git /opt/padavan-4.4
+        git clone --depth=1 https://github.com/trybuild11/padavan-4.4.git /opt/padavan-4.4 
         cd /opt/padavan-4.4/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: K2P-USB
+        TNAME: JCG-AC856M
       run: |
         cd /opt/padavan-4.4/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
